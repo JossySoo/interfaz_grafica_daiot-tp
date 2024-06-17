@@ -28,7 +28,8 @@ const bigquery = new BigQuery();
 app.get("/getAllRecords", async (req, res) => {
   const query = `
     SELECT dev_id, propietario, tiempo_registro, temperatura, humedad
-    FROM \`daiot-tp.datos.sensores_tph_5min_interval\`
+    FROM \`daiot-tp.datos.sensores_tph_5min_interval\` 
+    ORDER BY tiempo_registro ASC
   `;
 
   const options = {
