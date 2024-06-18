@@ -12,6 +12,7 @@ export class DashboardComponent implements OnInit {
   nodeId: string = '';
   lastValue: number = 0;
   lastTimestamp: string = '';
+  sensorDataList: SensorData[] = [];
 
   constructor(private dataService: DataService) { }
 
@@ -23,6 +24,7 @@ export class DashboardComponent implements OnInit {
   fetchLastRecords(): void {
     this.dataService.getLastRecords().subscribe((data: SensorData[]) => {
       if (data.length > 0) {
+        this.sensorDataList = data;
         const latestData = data[0];
         console.log('Latest data:', latestData); // Log the latest data
         
@@ -39,6 +41,7 @@ export class DashboardComponent implements OnInit {
 
   fetchAllRecords(): void {
     this.dataService.getAllRecords().subscribe((data: SensorData[]) => {
+      console.log(data)
       this.plotChart(
         data.map(d => new Date(d.tiempo_registro.value).toLocaleString()), // Asegurarse de que las fechas sean objetos Date
         data.map(d => d.temperatura),

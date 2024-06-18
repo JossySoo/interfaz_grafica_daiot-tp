@@ -1,10 +1,22 @@
-<div>
-    <h2>Información del Nodo</h2>
-    <p>ID del Nodo: {{ nodeId }}</p>
-    <p>Último Valor Reportado: {{ lastValue }}</p>
-    <p>Timestamp de la Última Telemetría: {{ lastTimestamp }}</p>
+<div class="contenedor">
+  <div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="/../assets/temperatura.png" class="img-fluid rounded-start">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Sensor {{ nodeId }}</h5>
+          <p class="card-text">Último Registro Temperatura: {{ lastValue }}</p>
+          <p class="card-text">Último Registro Humedad: {{ lastValue }}</p>
+          <p class="card-text"><small class="text-body-secondary">Última actualización: {{ lastTimestamp }}</small></p>
+        </div>
+      </div>
+    </div>
   </div>
-  <div>
-    <h2>Gráfica de Temperatura y Humedad</h2>
-    <canvas id="tempHumidityChart"></canvas>
-  </div>
+</div>
+
+<div class="contenedor">
+  <h2>Gráfica de Temperatura y Humedad</h2>
+  <canvas id="tempHumidityChart"></canvas>
+</div>
